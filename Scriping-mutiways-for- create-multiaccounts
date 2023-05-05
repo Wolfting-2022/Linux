@@ -1,9 +1,8 @@
-V1:
+//**V1
 #!/bin/sh -u
-
-if [ -z "$1" -o "$2" = ‘ ‘ ]; then
-        echo “need input username and description”
-elif [[ “$1” =~ ^[a~zA~Z]+$ ]]; then
+if [ -z "$1" -o "$2" = ' ' ]; then
+        echo "need input username and description"
+elif [[ "$1" =~ ^[a~zA~Z]+$ ]]; then
         for ((n=01; n <= 15; n++))
         do
                 name=$1user$n
@@ -11,20 +10,16 @@ elif [[ “$1” =~ ^[a~zA~Z]+$ ]]; then
                 echo “$name:$( openssl rand -base64 12):$uid:$uid:/home/$name:bin/bash”
         done
 else
-        echo “It is not permitted!” 
+        echo "It is not permitted!" 
 fi
-
-
-
-
 username=$1user
 
-V2:
+//**V2
 #!/bin/sh -u
 
 if [ "$1" = '' -o "$2" = '' ]; then
 	   echo “input both prefix and description”
-elif [[ “$1” =~ ^[a~zA~Z]+$ ]]; then
+elif [[ "$1" =~ ^[a~zA~Z]+$ ]]; then
         for ((n=01; n <= 15; n++))
         do
                 name=$1user$n
@@ -32,10 +27,10 @@ elif [[ “$1” =~ ^[a~zA~Z]+$ ]]; then
                 echo “$name:$( openssl rand -base64 12):$uid:$uid:/home/$name:bin/bash”
         done
 else
-        echo “Please input the full letters in prefix!” 
+        echo "Please input the full letters in prefix!" 
 fi
 
-V3:
+//**V3
 #!/bin/sh -u
 
 if [ "$1" = '' -o "$2" = '' ]; then
@@ -52,10 +47,9 @@ else
         echo “Please input the full letters in prefix!” 
 fi
 
-
 Pat1+part3 can output1
 
-V4:
+//**V4
 #!/bin/bash
 
 
@@ -79,29 +73,25 @@ else
 fi
 
 
-V5:
+//**V5
 
 #!/bin/bash
 
-
 #Simple Script to Create Multiple Users in Linux  using "if...elif...then" and for "for...do...done"
-# by chen0869/ TING CHENG
+# by xxx
 
-
-
-if [[ "$1" = '' || "$2" = '' ]]; then							#if prefix or description blank, then output prompt!
-           echo “input both prefix and description”
+if [[ "$1" = '' || "$2" = '' ]]; then
+           echo "input both prefix and description"
 elif [[ “$1” =~ ^[a~zA~Z]+$ ]]; then						#if prefix is in the right form with all letters, then enter loop1
-									# n=1
-	for ((n=1; n <= 15; n++)); do						#set for loop condition while [[ $n <= 15 ]] or #[ $n -le 15 ]
-		 
-                name=$1user$(printf "%02d" $n)					#name is prefix+user+padded with zero to format as two character wide.
-                uid=10$(printf "%02d" $n)						#uid is padded with zero to format as four character wide
+												# n=1
+	for ((n=1; n <= 15; n++)); do					#set for loop condition while [[ $n <= 15 ]] or #[ $n -le 15 ]		 
+                name=$1user$(printf "%02d" $n)				#name is prefix+user+padded with zero to format as two character wide.
+                uid=10$(printf "%02d" $n)					#uid is padded with zero to format as four character wide
                 echo “$name:$( openssl rand -base64 12):$uid:$uid:$2:/home/$name:bin/bash”	#output standard format of the list of users
-        									#let n=n+1     # ((n +=1))
+        											#let n=n+1     # ((n +=1))
         done
 else
-        echo “Please input the full letters in prefix!” 
+        echo "Please input the full letters in prefix!" 
 fi
  
 
